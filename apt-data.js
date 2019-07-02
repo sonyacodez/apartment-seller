@@ -62,4 +62,16 @@ const apartments = [
             email: "t@noah.ark"
         }
     }
-]
+];
+
+// const intlData = {
+//     "locales": "en-US",
+//     "formats": {
+//         "number": {
+//             "USD": {
+//                 "style": "currency",
+//                 "currency": "USD"
+//             }
+//         }
+//     }
+// };

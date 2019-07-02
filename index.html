@@ -33,14 +33,33 @@
 
     <hr>
 
+    <script id="apartmentListings" type="text/x-handlebars-template">
+        {{#each apartments}}
+            {{!-- issue with seeing the origin results. Running debugger, following the flow, then checking the hTML and seeing all html had been rendered but couldn't see it on the page.Then figured out it was invisible :/ --}}
+            <div class="result">
+                <img src="{{img}}">
+                Address:{{address}}
+                Rooms: {{rooms}}
+                Price: {{formatNumber price style="currency" currency="USD"}}.
+                {{#if immediate}}
+                    <span>You may contact {{contactDetails.name}} at {{contactDetails.email}}</span>
+                {{/if}}
+                {{#if parking}}
+                    <div>Parking is available</div>
+                {{/if}}
+            </div>
+        {{else}}
+            <p class="result">We're sorry. There aren't any apartments that match your preferences.</p>
+            {{!-- issue with placing the else within or outside of the result divs. then applying the result css class for it to be seen --}}
+        {{/each}}
+    </script>
+
     <div id="results"></div>
 
-    <!-- Your Code Here -->
-    <!-- You should start doing handlebar stuff here -->
-    <!-- Your Code Here -->
 
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
+    <script src="/Users/Sonya/Desktop/Elevation Academy/personal/Week-3/Day1/apartment-seller/handlebars-intl-1.1.2/dist/handlebars-intl.js"></script>
     <script src="apt-data.js"></script>
     <script src="apt-filter.js"></script>
     <script src="main.js"></script>

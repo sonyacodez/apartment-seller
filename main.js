@@ -11,10 +11,15 @@ $("button").on("click", function () {
     renderApts(relevantApts)
 })
 
-const renderApts = function (apartments) {
+
+HandlebarsIntl.registerWith(Handlebars);
+
+const renderApts = apartments => {
     $("#results").empty()
-    console.log(apartments) //array of apartments to render
-    //Your code goes here.
+    const source = $("#apartmentListings").html()
+    const template = Handlebars.compile(source)
+    const newHTML = template({apartments})
+    $("#results").append(newHTML)
 }
 
-renderApts(apartments) //renders apartments when page loads
+renderApts(apartments)
